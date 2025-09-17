@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PersonalBlog.Web.Data;
+using PersonalBlog.Web.Repositories;
 
 namespace PersonalBlog.Web
 {
@@ -19,6 +20,8 @@ namespace PersonalBlog.Web
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddSingleton<IRepository, DummyRepository>();
 
             var app = builder.Build();
 

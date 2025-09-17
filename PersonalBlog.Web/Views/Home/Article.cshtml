@@ -1,0 +1,25 @@
+﻿@model PersonalBlog.Web.Models.Article?
+
+@{
+    ViewData["Title"] = "Article";
+}
+
+@if (Model is null)
+{
+    <h1>Article was not found.</h1>
+}
+else
+{
+    <h1>@Model.Title</h1>
+
+    <div>
+        <h4>@Model.PublishedAt.ToLongDateString()</h4>
+        <hr />
+        <p>
+            @Html.DisplayFor(model => model.Content)
+        </p>
+    </div>    
+}
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

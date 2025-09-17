@@ -1,8 +1,32 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model List<Article>
+@{
+    ViewData["Title"] = "Personal Blog";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Personal Blog</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Model is not null)
+        {
+            @foreach (Article c in Model)
+            {
+                <tr>
+                    <td class="text-start">
+                        @Html.ActionLink(c.Title, "Article", new { id = c.Id })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => c.PublishedAt)
+                    </td>
+                </tr>
+            }
+        }
+        </tbody>
+    </table>
 </div>
