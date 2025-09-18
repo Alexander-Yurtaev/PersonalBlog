@@ -1,18 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace PersonalBlog.Web.Models
+﻿namespace PersonalBlog.Web.Models
 {
     public class Article
     {
         public Article()
         {
-            
+            PublishedAt = DateTime.Now;
         }
 
-        public Article(string title, string content)
+        public Article(string title, string content) : this()
         {
             Title = title;
-            PublishedAt = DateTime.Now;
             Content = content;
         }
 
@@ -20,7 +17,7 @@ namespace PersonalBlog.Web.Models
         public bool IsNew => Id == 0;
         public string Title { get; set; }
 
-        public DateTime PublishedAt { get; set; }
+        public DateTime? PublishedAt { get; set; }
         public string Content { get; set; }
     }
 }

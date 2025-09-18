@@ -75,44 +75,35 @@ namespace PersonalBlog.Web.Repositories
         {
             var testArticles = new List<Article>
             {
-                new Article
+                new Article(title: "Введение в программирование", content: "Эта статья представляет собой введение в основы программирования...")
                 {
                     Id = 1,
-                    Title = "Введение в программирование",
-                    PublishedAt = new DateTime(2024, 8, 7),
-                    Content = "Эта статья представляет собой введение в основы программирования..."
+                    PublishedAt = new DateTime(2024, 8, 7)
                 },
 
-                new Article
+                new Article(title: "Основы работы с базами данных", content: "В этой статье мы рассмотрим основные концепции работы с БД...")
                 {
                     Id = 2,
-                    Title = "Основы работы с базами данных",
-                    PublishedAt = new DateTime(2024, 7, 15),
-                    Content = "В этой статье мы рассмотрим основные концепции работы с БД..."
+                    PublishedAt = new DateTime(2024, 7, 15)
                 },
 
-                new Article
+                new Article(title: "Практическое руководство по ASP.NET Core", content: "Пошаговая инструкция по созданию веб-приложений на ASP.NET Core...")
                 {
                     Id = 3,
-                    Title = "Практическое руководство по ASP.NET Core",
-                    PublishedAt = new DateTime(2024, 6, 22),
-                    Content = "Пошаговая инструкция по созданию веб-приложений на ASP.NET Core..."
+                    
+                    PublishedAt = new DateTime(2024, 6, 22)
                 },
 
-                new Article
+                new Article(title: "Оптимизация производительности", content: "Методы улучшения производительности веб-приложений...")
                 {
                     Id = 4,
-                    Title = "Оптимизация производительности",
-                    PublishedAt = new DateTime(2024, 5, 10),
-                    Content = "Методы улучшения производительности веб-приложений..."
+                    PublishedAt = new DateTime(2024, 5, 10)
                 },
 
-                new Article
+                new Article(title: "Тестирование программного обеспечения", content: "Полное руководство по тестированию ПО...")
                 {
                     Id = 5,
-                    Title = "Тестирование программного обеспечения",
-                    PublishedAt = new DateTime(2024, 4, 25),
-                    Content = "Полное руководство по тестированию ПО..."
+                    PublishedAt = new DateTime(2024, 4, 25)
                 }
             };
 

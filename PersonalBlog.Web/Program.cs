@@ -30,7 +30,8 @@ namespace PersonalBlog.Web
 
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddSingleton<IRepository, DummyRepository>();
+            //builder.Services.AddSingleton<IRepository, DummyRepository>();
+            builder.Services.AddScoped<IRepository, EtfRepository>();
 
             var app = builder.Build();
 
