@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PersonalBlog.Web.Models;
 using PersonalBlog.Web.Repositories;
 
 namespace PersonalBlog.Web.Controllers
 {
+    [Authorize(policy: "RequireAdminRole")]
     public class AdminController : Controller
     {
         private readonly IRepository _repository;

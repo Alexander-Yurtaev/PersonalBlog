@@ -1,13 +1,14 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PersonalBlog.Web.Data;
+using PersonalBlog.Web.Extensions;
 using PersonalBlog.Web.Repositories;
 
 namespace PersonalBlog.Web
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +19,15 @@ namespace PersonalBlog.Web
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>() // Добавляем поддержку ролей
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdminRole", policy =>
+                    policy.RequireRole("Admin"));
+            });
+
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddSingleton<IRepository, DummyRepository>();
@@ -41,6 +50,8 @@ namespace PersonalBlog.Web
             app.UseRouting();
 
             app.UseAuthorization();
+
+            await app.ConfigRoles();
 
             app.MapStaticAssets();
             app.MapControllerRoute(
