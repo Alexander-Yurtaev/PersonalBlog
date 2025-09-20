@@ -23,12 +23,12 @@ namespace PersonalBlog.Web.Controllers
             return View(articles);
         }
 
-        public IActionResult AddArticle()
+        public IActionResult ShowAddArticle()
         {
             return View();
         }
 
-        public async Task<IActionResult> SaveArticle(Article article)
+        public async Task<IActionResult> CreateOrUpdateArticle(Article article)
         {
             if (article.IsNew)
             {
@@ -42,12 +42,12 @@ namespace PersonalBlog.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> UpdateArticle(int id)
+        public async Task<IActionResult> ShowUpdateArticle(int id)
         {
             var article = await _repository.GetById(id);
             if (article == null)
             {
-                return NotFound(id);
+                return NotFound();
             }
 
             return View(article);

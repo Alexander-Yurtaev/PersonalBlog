@@ -19,7 +19,7 @@
                 </td>
                 <td class="border-0"></td>
                 <td class="col-1 border-0">
-                    @Html.ActionLink("+ Add", "AddArticle")
+                    @Html.ActionLink("+ Add", "ShowAddArticle")
                 </td>
             </tr>
         </tbody>
@@ -43,7 +43,7 @@
                             @c.Title
                         </td>
                         <td class="col-1">
-                            @Html.ActionLink("Edit", "UpdateArticle", new { id = c.Id })
+                            @Html.ActionLink("Edit", "ShowUpdateArticle", new { id = c.Id })
                         </td>
                         <td class="col-1">
                             @Html.ActionLink("Delete", "DeleteConfirmation", new { id = c.Id })
